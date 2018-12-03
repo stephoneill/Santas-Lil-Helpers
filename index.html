@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <title>Christmas Countdown</title>
+
+<script LANGUAGE="JavaScript">
+function getDaysUntilXmas() {
+
+    var oneMinute = 60 * 1000
+    var oneHour = oneMinute * 60
+    var oneDay = oneHour * 24
+    var today = new Date()
+    var nextXmas = new Date()
+    nextXmas.setMonth(11)
+    nextXmas.setDate(25)
+    if (today.getMonth() == 11 && today.getDate() > 25) {
+        nextXmas.setFullYear(nextXmas.getFullYear() + 1)
+    }
+    var diff = nextXmas.getTime() - today.getTime()
+    diff = Math.floor(diff/oneDay)
+    return diff
+}
+</script>
+</head>
+
+<body>
+<h1>
+  <script LANGUAGE="JavaScript">
+  var header = "There are <I>" + getDaysUntilXmas()  + "</I> "
+  header += "days until Christmas."
+  document.write(header)
+  </script>
+</h1>
+</body>
+</html>
